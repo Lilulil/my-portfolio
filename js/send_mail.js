@@ -1,91 +1,40 @@
-URL = "https://developerfolio-server.herokuapp.com/apis/contact"
+/* Contact form — no backend, no third-party server.
+   Old version posted to developerfolio-server.onrender.com (a template author's demo server),
+   so messages never reached the owner. Now: open WhatsApp with the message pre-filled,
+   and offer email as a fallback. */
 
-document.getElementById('contactForm').addEventListener('submit', submitForm);
+(function () {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
 
-function submitForm(e) {
+  var WA = '6281952387500';
+  var MAIL = 'uabshor43@gmail.com';
 
-    // loads a spinner
-    document.getElementById('submitButton').value = "Submitting..."
-    // document.getElementById('submitButton').style.color = "green";
-
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Get values 
-    var name = getInputVal('name');
-    var email = getInputVal('email');
-    var message = getInputVal('message');
+    var name = (document.getElementById('name').value || '').trim();
+    var email = (document.getElementById('email').value || '').trim();
+    var message = (document.getElementById('message').value || '').trim();
+    var status = document.getElementById('status');
+    var btn = document.getElementById('submitButton');
 
-    saveMessage(name, email, message);
-}
+    if (!name || !email || !message) {
+      status.innerHTML = '<p style="color:#ff8a65;font-size:16px;font-weight:500;">Please fill in name, email and message.</p>';
+      return;
+    }
 
-// Function to get get form values 
-function getInputVal(id) {
-    return document.getElementById(id).value;
-}
+    var text = 'Hi Ulil, I found your portfolio.\n\nName: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    var waUrl = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text);
+    var mailUrl = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Project inquiry from ' + name)
+                + '&body=' + encodeURIComponent(text);
 
-// Save message to firebase 
-function saveMessage(name, email, message) {
-    var formdata = new FormData();
+    btn.value = 'Opening WhatsApp…';
+    window.open(waUrl, '_blank');
 
-    formdata.append("name", name);
-    formdata.append("email", email);
-    formdata.append("message", message);
-
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-
-    fetch("https://developerfolio-server.onrender.com/apis/contact", requestOptions)
-        .then(response => {
-            let statusCode = response.status;
-            if (statusCode === 201) {
-                document.getElementById('status').innerHTML =
-                    " <p style='font-size:18px; font-weight:500; '> Hello," + name + " .Thank you for contacting me. <br> I will contact you soon. </p>"
-                document.getElementById('status').style.color = "green";
-                document.getElementById('status').style.fontWeight = "500";
-                document.getElementById('submitButton').value = "Submitted"
-                document.getElementById('submitButton').style.color = "green";
-                document.getElementById('submitButton').toggleAttribute("disabled", true);
-            }
-            else if (statusCode === 307) {
-                document.getElementById('status').innerHTML =
-                    "<p style='font-size:18px; font-weight:500; '> Hello," + name + " .You have already submitted the query that is not answered yet.<br><span style=\"color:green\">Will get back to you soon.Don't Worry !!</span></p >"
-                document.getElementById('status').style.color = "red";
-                document.getElementById('status').style.fontWeight = "500";
-                document.getElementById('status').style.fontSize = "18";
-                document.getElementById('submitButton').value = "Already Submitted"
-                document.getElementById('submitButton').style.color = "red";
-                document.getElementById('submitButton').toggleAttribute("disabled", true);
-
-            }
-            else if (statusCode === 400) {
-                document.getElementById('status').innerHTML =
-                    "Profanity language not allowed."
-                document.getElementById('status').style.color = "red";
-                document.getElementById('status').style.fontWeight = "500";
-                document.getElementById('status').style.fontSize = "18";
-                document.getElementById('submitButton').value = "Send Message"
-                document.getElementById('submitButton').style.color = "white";
-            }
-            else {
-                document.getElementById('status').innerHTML =
-                    "There is some issue !! Please Try again"
-                document.getElementById('status').style.color = "red";
-                document.getElementById('status').style.fontWeight = "500";
-                document.getElementById('status').style.fontSize = "18";
-                document.getElementById('submitButton').value = "Send Message"
-                document.getElementById('submitButton').style.color = "white";
-            }
-        })
-        .catch(error => {
-            document.getElementById('status').innerHTML =
-                "There is some issue !! Please Try again"
-            document.getElementById('status').style.color = "red";
-            document.getElementById('status').style.fontWeight = "500";
-            document.getElementById('status').style.fontSize = "18";
-            document.getElementById('submitButton').value = "Send Message"
-            document.getElementById('submitButton').style.color = "white";
-        })
-}
+    status.innerHTML =
+      '<p style="color:#8fe388;font-size:16px;font-weight:500;">WhatsApp opened in a new tab. If nothing happened, ' +
+      '<a href="' + mailUrl + '" style="color:#8fe388;text-decoration:underline;">send it by email instead</a>.</p>';
+    btn.value = 'Send Message';
+  });
+})();

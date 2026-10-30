@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Data pipeline: sources flow into parser, classifier, database and alerts">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#100d1c"/><stop offset="1" stop-color="#0a0f1f"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b5ba8"/>
+    </marker>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b39ddb"/><stop offset="1" stop-color="#37c8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#bg2)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" rx="14" fill="none" stroke="#241f38"/>
+  <circle cx="26" cy="26" r="5" fill="#ff5f56"/><circle cx="44" cy="26" r="5" fill="#ffbd2e"/><circle cx="62" cy="26" r="5" fill="#27c93f"/>
+  <text x="92" y="31" fill="#7a7396" font-family="monospace" font-size="13">pipeline · scan --limit 40</text>
+
+  <!-- stage 1 -->
+  <g>
+    <rect x="30" y="70" width="150" height="86" rx="10" fill="#150f26" stroke="#332a52"/>
+    <text x="46" y="96" fill="#b39ddb" font-family="monospace" font-size="11">SOURCES</text>
+    <text x="46" y="122" fill="#e6e0f5" font-family="monospace" font-size="20" font-weight="bold">2 channels</text>
+    <text x="46" y="142" fill="#6f6790" font-family="monospace" font-size="10">public · no login</text>
+  </g>
+  <line x1="186" y1="113" x2="228" y2="113" stroke="#6b5ba8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- stage 2 -->
+  <g>
+    <rect x="234" y="70" width="150" height="86" rx="10" fill="#150f26" stroke="#332a52"/>
+    <text x="250" y="96" fill="#b39ddb" font-family="monospace" font-size="11">PARSER</text>
+    <text x="250" y="122" fill="#e6e0f5" font-family="monospace" font-size="20" font-weight="bold">40 items</text>
+    <text x="250" y="142" fill="#6f6790" font-family="monospace" font-size="10">link resolve</text>
+  </g>
+  <line x1="390" y1="113" x2="432" y2="113" stroke="#6b5ba8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- stage 3 -->
+  <g>
+    <rect x="438" y="70" width="150" height="86" rx="10" fill="#150f26" stroke="#332a52"/>
+    <text x="454" y="96" fill="#b39ddb" font-family="monospace" font-size="11">CLASSIFIER</text>
+    <text x="454" y="122" fill="#e6e0f5" font-family="monospace" font-size="20" font-weight="bold">4 buckets</text>
+    <text x="454" y="142" fill="#6f6790" font-family="monospace" font-size="10">auto/manual/skip</text>
+  </g>
+  <line x1="594" y1="113" x2="636" y2="113" stroke="#6b5ba8" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- stage 4 -->
+  <g>
+    <rect x="642" y="70" width="128" height="86" rx="10" fill="#150f26" stroke="#332a52"/>
+    <text x="658" y="96" fill="#b39ddb" font-family="monospace" font-size="11">STORE</text>
+    <text x="658" y="122" fill="#e6e0f5" font-family="monospace" font-size="20" font-weight="bold">SQLite</text>
+    <text x="658" y="142" fill="#6f6790" font-family="monospace" font-size="10">0 duplikat</text>
+  </g>
+
+  <!-- dedupe key -->
+  <rect x="30" y="186" width="740" height="46" rx="8" fill="#0b0a14" stroke="#241f38"/>
+  <text x="46" y="214" fill="#6f6790" font-family="monospace" font-size="11">PRIMARY KEY (channel, msg_id)</text>
+  <text x="360" y="214" fill="#5fe08a" font-family="monospace" font-size="11">→ 0 duplicate inserts</text>
+  <text x="640" y="214" fill="#37c8ff" font-family="monospace" font-size="11">silent by default</text>
+
+  <!-- scoring bars -->
+  <g font-family="monospace">
+    <text x="30" y="268" fill="#8a80ad" font-size="11">SCORE 0–100 → TIER A/B/C</text>
+    <rect x="30" y="280" width="700" height="10" rx="5" fill="#1a1529"/>
+    <rect x="30" y="280" width="595" height="10" rx="5" fill="url(#accent2)"/>
+    <text x="640" y="290" fill="#e6e0f5" font-size="10">87 / 100</text>
+    <text x="30" y="312" fill="#6f6790" font-size="10">testnet/faucet +20 · funding +8 · red flag −25</text>
+  </g>
+
+  <!-- digest preview -->
+  <g font-family="monospace" font-size="11">
+    <rect x="30" y="330" width="740" height="96" rx="8" fill="#0b0a14" stroke="#241f38"/>
+    <text x="44" y="352" fill="#b39ddb">🟠 Kandidat · daily check-in · 77 (A)</text>
+    <text x="44" y="374" fill="#6f6790">    https://t.me/channel/129024 · testnet_unspecified</text>
+    <text x="44" y="396" fill="#b39ddb">🟡 Manual · social quest · 37 (C)</text>
+    <text x="44" y="418" fill="#6f6790">    manual: social · halaman_dinamis_spa</text>
+  </g>
+  <rect x="0" y="0" width="800" height="3" fill="url(#accent2)" opacity="0.7"/>
+</svg>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ulil Abshor — Automation & QA Engineer (CV)</title>
+<style>
+  @page { size: A4; margin: 10mm 11mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a1a1a; font-size: 9.2pt; line-height: 1.28; margin: 0; }
+  h1 { font-size: 19pt; margin: 0 0 1px; letter-spacing: -.4px; }
+  .role { font-size: 10.3pt; color: #0a7d4f; font-weight: 600; margin-bottom: 4px; }
+  .contact { font-size: 8.6pt; color: #444; margin-bottom: 2px; }
+  .contact a { color: #0a5f9e; text-decoration: none; }
+  .rule { height: 2px; background: #111; margin: 7px 0 8px; }
+  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 9px 0 4px; color: #111;
+       border-bottom: 1px solid #d5d5d5; padding-bottom: 2px; }
+  p { margin: 0 0 5px; }
+  ul { margin: 0 0 4px; padding-left: 14px; }
+  li { margin-bottom: 1.5px; }
+  .job { margin-bottom: 5px; }
+  .job-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 9.8pt; }
+  .job-sub { color: #555; font-size: 8.7pt; margin-bottom: 1px; }
+  .grid { display: flex; gap: 10px; }
+  .grid > div { flex: 1; }
+  .pill { display: inline-block; background: #f0f4f2; border: 1px solid #dbe5e0; border-radius: 10px;
+          padding: 1px 7px; font-size: 8.8pt; margin: 0 3px 3px 0; }
+  .metric { font-weight: 700; color: #0a7d4f; }
+  .note { font-size: 9pt; color: #555; }
+  .two { column-count: 2; column-gap: 16px; }
+  .two li { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>Ulil Abshor</h1>
+<div class="role">Automation &amp; QA Engineer · Python · AI Integration</div>
+<div class="contact">
+  Demak, Central Java, Indonesia · +62 819 5238 7500 ·
+  <a href="mailto:uabshor43@gmail.com">uabshor43@gmail.com</a><br>
+  <a href="https://portfolio-ulil-abshor.vercel.app">portfolio-ulil-abshor.vercel.app</a> ·
+  <a href="https://github.com/Lilulil">github.com/Lilulil</a> ·
+  <a href="https://www.linkedin.com/in/ulil-abshor-124810213/">linkedin.com/in/ulil-abshor-124810213</a>
+</div>
+<div class="rule"></div>
+
+<p><strong>Self-taught automation engineer</strong> who replaces repetitive manual work with scheduled, self-reporting
+scripts. I reverse-engineer the API or automate the UI, add logging and alerts, and hand over something you can run
+yourself. Recent work: <span class="metric">112 automated cycles in 24h with 0 failed batches</span>,
+<span class="metric">40 sources classified per run with 0 duplicates</span>, and a backtest of
+<span class="metric">1,594 trades out-of-sample</span> that honestly reported "no edge". I say when something does not work.</p>
+
+<h2>Selected Work</h2>
+
+<div class="job">
+  <div class="job-head"><span>Automation Bot — browser game API</span><span>Python · REST · cron</span></div>
+  <div class="job-sub">Solo build · 2026</div>
+  <ul>
+    <li>Reverse-engineered the game's private API and wallet-signature login, replacing manual clicking with a scheduled loop (harvest, replant, water, craft, sell, auto-upgrade).</li>
+    <li>Ran <span class="metric">112 cycles in one day with 0 failed batches</span>; every action logged, failures alerted to Telegram.</li>
+    <li>Added safety rules: never spend below a token floor, never sell reserved stock, stop on session takeover.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head"><span>Screening Pipeline — data triage</span><span>Python · SQLite · regex</span></div>
+  <div class="job-sub">Solo build · 2026</div>
+  <ul>
+    <li>Scrapes public sources without login, resolves shortlinks, fetches each landing page, scores every item, and stores only what is new.</li>
+    <li><span class="metric">40 items classified per run, 0 duplicate inserts</span> (composite-key dedupe); silent by design — reports only when something is worth acting on.</li>
+    <li>Rule-based classifier with red-flag detection (deposit / KYC / presale) that overrides the source text when the page disagrees.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head"><span>Backtest Harness — strategy research</span><span>Python · pandas · OHLCV</span></div>
+  <div class="job-sub">Solo build · 2026</div>
+  <ul>
+    <li>Built a full research harness: 5 pairs × 3 timeframes × 12 months, fee and slippage modelling, parameter grid with out-of-sample validation.</li>
+    <li><span class="metric">1,594 trades simulated at 15m</span>; in-sample profit factor 1.19 collapsed to 0.71–0.96 out-of-sample — reported as overfit instead of shipping it.</li>
+    <li>Deliverable was a decision, not a product: the strategy was shelved and capital preserved.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head"><span>Auto-Apply Bot · AI Document Chatbot</span><span>Python · SMTP · Streamlit</span></div>
+  <div class="job-sub">Solo build · 2026 · <a href="https://github.com/Lilulil/docai-chatbot">github.com/Lilulil/docai-chatbot</a></div>
+  <ul>
+    <li>Auto-Apply: reads vacancies from Excel and sends tailored applications with rate limiting — <span class="metric">12 applications from 33 vacancies</span> per run.</li>
+    <li>Doc chatbot: upload PDF/TXT/DOCX and ask questions; answers grounded via retrieval (Streamlit + vector search), WhatsApp version in n8n.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="two">
+  <ul>
+    <li><strong>Languages:</strong> Python, JavaScript, HTML/CSS, Solidity (basics)</li>
+    <li><strong>Automation:</strong> Playwright, PyAutoGUI, OpenCV, cron, REST/JSON APIs, reverse-engineering web apps</li>
+    <li><strong>Data:</strong> SQLite, pandas, Excel, scraping and dedupe pipelines</li>
+    <li><strong>AI:</strong> Claude/[OI] API, RAG, vector search (Qdrant/FAISS), n8n orchestration</li>
+    <li><strong>Web3:</strong> EVM RPC, ethers.js/web3.py, wallet signatures, contract read/preview flows</li>
+    <li><strong>Ops:</strong> Git/GitHub, Linux VPS, systemd/tmux, WordPress, technical documentation</li>
+  </ul>
+</div>
+
+<h2>Experience</h2>
+<div class="job">
+  <div class="job-head"><span>E-commerce Operations — Luna Lumina</span><span>2024 – 2025</span></div>
+  <div class="job-sub">Store operations, listing optimisation, customer service (English)</div>
+  <ul>
+    <li>Grew monthly sales from <span class="metric">$250 to $3,000+</span> through listing quality, pricing tests and faster response times.</li>
+  </ul>
+</div>
+
+<h2>Certifications</h2>
+<p class="note">Frontend Web Development · Artificial Intelligence Specialization · WordPress Development · Website Development Fundamental — MySkill (2025) · Multimedia Production — BLKK Semarang (2021)</p>
+
+<h2>Availability</h2>
+<p>Freelance and remote, worldwide · English (professional) · Indonesian (native) ·
+Response within a few hours on WhatsApp · Fixed scope, 50% upfront, 1 free revision.</p>
+
+</body>
+</html>

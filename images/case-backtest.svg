@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Backtest report: equity curve declining, profit factor 0.84, 1594 trades">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1208"/><stop offset="1" stop-color="#0a0f1f"/>
+    </linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb74d" stop-opacity="0.28"/><stop offset="1" stop-color="#ffb74d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb74d"/><stop offset="1" stop-color="#ff7043"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#bg3)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" rx="14" fill="none" stroke="#33281a"/>
+  <circle cx="26" cy="26" r="5" fill="#ff5f56"/><circle cx="44" cy="26" r="5" fill="#ffbd2e"/><circle cx="62" cy="26" r="5" fill="#27c93f"/>
+  <text x="92" y="31" fill="#8a7355" font-family="monospace" font-size="13">backtest · 15m · 5 pairs · 12 months</text>
+
+  <g font-family="monospace">
+    <text x="30" y="80" fill="#7d6a52" font-size="11">PROFIT FACTOR</text>
+    <text x="30" y="112" fill="#ff8a65" font-size="28" font-weight="bold">0.84</text>
+    <text x="196" y="80" fill="#7d6a52" font-size="11">EXPECTANCY</text>
+    <text x="196" y="112" fill="#ff8a65" font-size="28" font-weight="bold">−0.09R</text>
+    <text x="380" y="80" fill="#7d6a52" font-size="11">MAX DD</text>
+    <text x="380" y="112" fill="#ff8a65" font-size="28" font-weight="bold">97.8%</text>
+    <text x="540" y="80" fill="#7d6a52" font-size="11">TRADES</text>
+    <text x="540" y="112" fill="#f2e4d0" font-size="28" font-weight="bold">1 594</text>
+    <text x="686" y="80" fill="#7d6a52" font-size="11">FEE PAID</text>
+    <text x="686" y="112" fill="#f2e4d0" font-size="28" font-weight="bold">$751</text>
+  </g>
+
+  <!-- equity curve -->
+  <g>
+    <line x1="30" y1="330" x2="770" y2="330" stroke="#33281a"/>
+    <line x1="30" y1="270" x2="770" y2="270" stroke="#241d14"/>
+    <line x1="30" y1="210" x2="770" y2="210" stroke="#241d14"/>
+    <line x1="30" y1="150" x2="770" y2="150" stroke="#241d14"/>
+    <path d="M30,150 L60,158 L90,152 L120,168 L150,175 L180,170 L210,188 L240,196 L270,190 L300,208 L330,222 L360,215 L390,232 L420,244 L450,238 L480,256 L510,266 L540,260 L570,278 L600,288 L630,282 L660,296 L690,304 L720,298 L750,312 L770,318
+             L770,330 L30,330 Z" fill="url(#fill)"/>
+    <path d="M30,150 L60,158 L90,152 L120,168 L150,175 L180,170 L210,188 L240,196 L270,190 L300,208 L330,222 L360,215 L390,232 L420,244 L450,238 L480,256 L510,266 L540,260 L570,278 L600,288 L630,282 L660,296 L690,304 L720,298 L750,312 L770,318"
+          fill="none" stroke="url(#accent3)" stroke-width="2.5" stroke-linejoin="round">
+      <animate attributeName="stroke-dasharray" from="0,2000" to="2000,0" dur="2.4s" fill="freeze"/>
+    </path>
+    <circle cx="770" cy="318" r="4" fill="#ff7043"/>
+    <text x="30" y="352" fill="#7d6a52" font-family="monospace" font-size="10">equity 1000</text>
+    <text x="716" y="352" fill="#7d6a52" font-family="monospace" font-size="10">33</text>
+  </g>
+
+  <!-- honest verdict badge -->
+  <rect x="30" y="372" width="740" height="52" rx="8" fill="#0f0b06" stroke="#33281a"/>
+  <text x="46" y="394" fill="#ffb74d" font-family="monospace" font-size="11">VERDICT</text>
+  <text x="118" y="394" fill="#e8dcc8" font-family="monospace" font-size="12">no edge after out-of-sample test → reported, not shipped</text>
+  <text x="46" y="414" fill="#7d6a52" font-family="monospace" font-size="10">in-sample PF 1.19 → out-of-sample 0.71–0.96 (overfit detected)</text>
+  <rect x="0" y="0" width="800" height="3" fill="url(#accent3)" opacity="0.75"/>
+</svg>
