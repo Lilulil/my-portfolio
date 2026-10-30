@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Certificate of Appreciation: International Joint Lecture on Cybersecurity and Artificial Intelligence, Universitas Semarang and National United University Taiwan, 7 October 2026, 8 JP">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdfbf4"/><stop offset="1" stop-color="#f3eee1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d13"/>
+    </linearGradient>
+    <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/><stop offset="1" stop-color="#0b2a7a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#paper)"/>
+  <rect x="10" y="10" width="780" height="430" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <rect x="18" y="18" width="764" height="414" fill="none" stroke="#c9a227" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- corner ornaments -->
+  <g stroke="#c9a227" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M30,58 L30,30 L58,30"/><path d="M770,58 L770,30 L742,30"/>
+    <path d="M30,392 L30,420 L58,420"/><path d="M770,392 L770,420 L742,420"/>
+  </g>
+
+  <text x="400" y="72" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="4" fill="#8a6d13">CERTIFICATE OF APPRECIATION</text>
+  <text x="400" y="98" text-anchor="middle" font-family="monospace" font-size="9.5" fill="#9a8c6a">No. 1350 / USM.H4.FTIK / I / 2026</text>
+
+  <text x="400" y="132" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#7a6a45">This certificate is proudly awarded to</text>
+
+  <text x="400" y="176" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="#1b1b1b">Ulil Abshor</text>
+  <line x1="250" y1="190" x2="550" y2="190" stroke="#c9a227" stroke-width="1"/>
+
+  <text x="400" y="216" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#7a6a45">in recognition of participation in the</text>
+  <text x="400" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="bold" fill="#1b1b1b">International Joint Lecture</text>
+  <text x="400" y="264" text-anchor="middle" font-family="Georgia, serif" font-size="12.5" fill="#2b2b2b">“Cybersecurity &amp; Artificial Intelligence for</text>
+  <text x="400" y="283" text-anchor="middle" font-family="Georgia, serif" font-size="12.5" fill="#2b2b2b">Academic Transformation”</text>
+
+  <text x="400" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#4a4a4a">Universitas Semarang (USM) · National United University (NUU), Taiwan</text>
+
+  <!-- badges -->
+  <g>
+    <rect x="252" y="326" width="140" height="26" rx="13" fill="#ffffff" stroke="#d9cfae"/>
+    <text x="322" y="343" text-anchor="middle" font-family="monospace" font-size="11" fill="#5a4f2e">7 OCTOBER 2026</text>
+    <rect x="408" y="326" width="140" height="26" rx="13" fill="#ffffff" stroke="#d9cfae"/>
+    <text x="478" y="343" text-anchor="middle" font-family="monospace" font-size="11" fill="#5a4f2e">8 JP · ONLINE</text>
+  </g>
+
+  <!-- seal -->
+  <g transform="translate(400,392)">
+    <circle r="26" fill="url(#seal)" opacity="0.95"/>
+    <circle r="21" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <text y="-3" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#ffffff" font-weight="bold">USM</text>
+    <text y="9" text-anchor="middle" font-family="monospace" font-size="7" fill="#dbeafe">× NUU</text>
+  </g>
+
+  <text x="60" y="404" font-family="Georgia, serif" font-size="9" fill="#6b6045">Cybersecurity</text>
+  <text x="60" y="418" font-family="Georgia, serif" font-size="9" fill="#6b6045">Responsible AI &amp; Resilience</text>
+  <text x="740" y="404" text-anchor="end" font-family="Georgia, serif" font-size="9" fill="#6b6045">Generative AI &amp; AI Companions</text>
+  <text x="740" y="418" text-anchor="end" font-family="Georgia, serif" font-size="9" fill="#6b6045">AI Industry Collaboration</text>
+</svg>
