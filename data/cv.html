@@ -33,7 +33,7 @@
 <body>
 
 <h1>Ulil Abshor</h1>
-<div class="role">Automation &amp; QA Engineer · Python · AI Integration</div>
+<div class="role">AI Agent &amp; Automation Engineer · Python · LLM Integration</div>
 <div class="contact">
   Demak, Central Java, Indonesia · +62 819 5238 7500 ·
   <a href="mailto:uabshor43@gmail.com">uabshor43@gmail.com</a><br>
@@ -43,20 +43,31 @@
 </div>
 <div class="rule"></div>
 
-<p><strong>Self-taught automation engineer</strong> who replaces repetitive manual work with scheduled, self-reporting
-scripts. I reverse-engineer the API or automate the UI, add logging and alerts, and hand over something you can run
-yourself. Recent work: <span class="metric">112 automated cycles in 24h with 0 failed batches</span>,
-<span class="metric">40 sources classified per run with 0 duplicates</span>, and a document chatbot whose answers stay
-grounded in your own files. I build the test that proves it works before you pay for it.</p>
+<p><strong>AI agent builder for small businesses.</strong> I take one repetitive job — answering customers, recapping
+orders, watching prices — and turn it into an agent that runs on its own, with logging, alerts and a human handoff.
+Latest build: an AI admin for online shops that answers from the shop's own catalog, writes every chat order into
+Google Sheets, sends WhatsApp confirmations and reports revenue to the owner at 07:00 — tested end to end
+(<span class="metric">chat → sheet → WhatsApp</span>) before handover. Earlier work:
+<span class="metric">112 automated cycles in 24h with 0 failed batches</span> and a
+<span class="metric">40-source pipeline with 0 duplicates</span>.</p>
 
 <h2>Selected Work</h2>
+
+<div class="job">
+  <div class="job-head"><span>AI Admin for Online Shops</span><span>Python · LLM · Sheets · WhatsApp</span></div>
+  <div class="job-sub">Solo build · 2026 · demo: portfolio-ulil-abshor.vercel.app (90s video)</div>
+  <ul>
+    <li>Customer chat answered from the shop's own catalog and FAQ — never invents a price; falls back to "let me check with the admin".</li>
+    <li>Free-form chat order parsed into a clean spreadsheet row (name, variant, qty, total, address, phone, status); <span class="metric">~1.5s reply time</span>, WhatsApp confirmation + H+1/H+3 follow-ups.</li>
+    <li>Owner bot for reports and control; customer-facing bot has <strong>no access</strong> to revenue or order data (fail-closed allowlist, rate limit, audit log).</li>
+  </ul>
+</div>
 
 <div class="job">
   <div class="job-head"><span>Automation Bot — browser game API</span><span>Python · REST · cron</span></div>
   <div class="job-sub">Solo build · 2026</div>
   <ul>
-    <li>Reverse-engineered the game's private API and wallet-signature login, replacing manual clicking with a scheduled loop (harvest, replant, water, craft, sell, auto-upgrade).</li>
-    <li>Ran <span class="metric">112 cycles in one day with 0 failed batches</span>; every action logged, failures alerted to Telegram.</li>
+    <li>Reverse-engineered a private API and wallet-signature login, replacing manual clicking with a scheduled loop; <span class="metric">112 cycles in one day, 0 failed batches</span>, every action logged and alerted to Telegram.</li>
     <li>Added safety rules: never spend below a token floor, never sell reserved stock, stop on session takeover.</li>
   </ul>
 </div>

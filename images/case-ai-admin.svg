@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="AI Admin flow: customer chat answered automatically, order row written to Google Sheets, confirmation sent to WhatsApp">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1220"/><stop offset="1" stop-color="#0b1a14"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#37c8ff"/><stop offset="1" stop-color="#5fe08a"/>
+    </linearGradient>
+    <marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3f6f8a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#bg4)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" rx="14" fill="none" stroke="#17303f"/>
+  <circle cx="26" cy="26" r="5" fill="#ff5f56"/><circle cx="44" cy="26" r="5" fill="#ffbd2e"/><circle cx="62" cy="26" r="5" fill="#27c93f"/>
+  <text x="92" y="31" fill="#6c8fa3" font-family="monospace" font-size="13">ai-admin · live demo</text>
+
+  <!-- Telegram chat panel -->
+  <rect x="24" y="56" width="300" height="330" rx="10" fill="#0d1a26" stroke="#1d3a4d"/>
+  <text x="40" y="80" fill="#4d7d99" font-family="monospace" font-size="10">CUSTOMER CHAT</text>
+
+  <rect x="40" y="94" width="200" height="34" rx="10" fill="#1c2f3d"/>
+  <text x="52" y="116" fill="#cfe3ee" font-family="sans-serif" font-size="11">kaos hitam ukuran L ready?</text>
+
+  <rect x="104" y="136" width="204" height="50" rx="10" fill="#123c2c"/>
+  <text x="116" y="156" fill="#a9f0c6" font-family="sans-serif" font-size="11">Ready kak, Hitam / L Rp 79.000.</text>
+  <text x="116" y="174" fill="#a9f0c6" font-family="sans-serif" font-size="11">Ongkir Jateng Rp 12.000.</text>
+
+  <rect x="40" y="194" width="252" height="34" rx="10" fill="#1c2f3d"/>
+  <text x="52" y="216" fill="#cfe3ee" font-family="sans-serif" font-size="11">mau pesan 2, nama Rina, Jl. Perbalan</text>
+
+  <rect x="104" y="236" width="204" height="66" rx="10" fill="#123c2c"/>
+  <text x="116" y="256" fill="#a9f0c6" font-family="sans-serif" font-size="11">Siap kak, pesanan dicatat 📝</text>
+  <text x="116" y="273" fill="#8fe3b4" font-family="monospace" font-size="10">Hitam / L x2 · Rp 158.000</text>
+  <text x="116" y="290" fill="#8fe3b4" font-family="monospace" font-size="10">COD · Rina</text>
+
+  <rect x="40" y="312" width="252" height="30" rx="8" fill="#3a1f22"/>
+  <text x="52" y="332" fill="#ff9d8a" font-family="monospace" font-size="10">komplain → handoff ke owner</text>
+  <text x="40" y="364" fill="#4d7d99" font-family="monospace" font-size="10">answered in 1.4s · 24/7</text>
+
+  <!-- arrow -->
+  <line x1="332" y1="150" x2="378" y2="150" stroke="#3f6f8a" stroke-width="2" marker-end="url(#ar4)"/>
+  <line x1="332" y1="270" x2="378" y2="270" stroke="#3f6f8a" stroke-width="2" marker-end="url(#ar4)"/>
+
+  <!-- Sheets panel -->
+  <rect x="386" y="56" width="390" height="150" rx="10" fill="#0b1c17" stroke="#1d4a38"/>
+  <text x="402" y="80" fill="#3f8f6b" font-family="monospace" font-size="10">GOOGLE SHEETS · Orders</text>
+  <g font-family="monospace" font-size="9.5">
+    <rect x="402" y="90" width="358" height="18" fill="#123126"/>
+    <text x="410" y="103" fill="#7fd3ab">waktu    nama   produk        varian    qty  total</text>
+    <text x="410" y="126" fill="#cfe8dc">07:41    Rina   Kaos Basic   Hitam / L  2   Rp 158.000</text>
+    <text x="410" y="146" fill="#6f8f82">07:52    Budi   Hijab Pashmina Mocca     1   Rp 65.000</text>
+    <text x="410" y="166" fill="#6f8f82">08:03    Sari   Kaos Oversize Krem / XL  1   Rp 99.000</text>
+    <text x="410" y="188" fill="#5fe08a">status: baru · 0 duplikat · sinkron otomatis</text>
+  </g>
+
+  <!-- WhatsApp panel -->
+  <rect x="386" y="222" width="390" height="164" rx="10" fill="#0c1a15" stroke="#1d4a38"/>
+  <text x="402" y="246" fill="#3f8f6b" font-family="monospace" font-size="10">WHATSAPP · konfirmasi ke pelanggan</text>
+  <rect x="402" y="258" width="300" height="72" rx="10" fill="#123c2c"/>
+  <text x="414" y="278" fill="#a9f0c6" font-family="sans-serif" font-size="11">Siap kak, pesanannya sudah dicatat 📝</text>
+  <text x="414" y="296" fill="#8fe3b4" font-family="monospace" font-size="10">Kaos Basic Hitam / L x2 — Rp 158.000</text>
+  <text x="414" y="314" fill="#8fe3b4" font-family="monospace" font-size="10">Ongkir dikonfirmasi admin ya kak.</text>
+  <text x="402" y="352" fill="#4d7d99" font-family="monospace" font-size="10">delivered via gateway · 62895414186600</text>
+  <text x="402" y="372" fill="#4d7d99" font-family="monospace" font-size="10">follow-up H+1 / H+3 otomatis</text>
+
+  <rect x="0" y="0" width="800" height="3" fill="url(#accent4)" opacity="0.8"/>
+</svg>
