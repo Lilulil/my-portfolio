@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Ulil Abshor — Automation & QA Engineer (CV)</title>
+<title>Ulil Abshor — AI Agent & Automation Engineer (CV)</title>
 <style>
   @page { size: A4; margin: 10mm 11mm; }
   * { box-sizing: border-box; }
-  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a1a1a; font-size: 9.2pt; line-height: 1.28; margin: 0; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a1a1a; font-size: 9.0pt; line-height: 1.26; margin: 0; }
   h1 { font-size: 19pt; margin: 0 0 1px; letter-spacing: -.4px; }
   .role { font-size: 10.3pt; color: #0a7d4f; font-weight: 600; margin-bottom: 4px; }
   .contact { font-size: 8.6pt; color: #444; margin-bottom: 2px; }
   .contact a { color: #0a5f9e; text-decoration: none; }
   .rule { height: 2px; background: #111; margin: 7px 0 8px; }
-  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 9px 0 4px; color: #111;
+  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 7px 0 3px; color: #111;
        border-bottom: 1px solid #d5d5d5; padding-bottom: 2px; }
   p { margin: 0 0 5px; }
   ul { margin: 0 0 4px; padding-left: 14px; }
@@ -28,6 +28,10 @@
   .note { font-size: 9pt; color: #555; }
   .two { column-count: 2; column-gap: 16px; }
   .two li { break-inside: avoid; }
+.cert-list, .avail { margin: 5px 0 0; padding-left: 15px; }
+.cert-list { column-count: 2; column-gap: 20px; }
+.cert-list li, .avail li { margin-bottom: 3.5px; color: #333; }
+.cert-list li::marker, .avail li::marker { color: #1e6b4f; }
 </style>
 </head>
 <body>
@@ -58,7 +62,7 @@ Google Sheets, sends WhatsApp confirmations and reports revenue to the owner at 
   <div class="job-sub">Solo build · 2026 · demo: portfolio-ulil-abshor.vercel.app (90s video)</div>
   <ul>
     <li>Customer chat answered from the shop's own catalog and FAQ — never invents a price; falls back to "let me check with the admin".</li>
-    <li>Free-form chat order parsed into a clean spreadsheet row (name, variant, qty, total, address, phone, status); <span class="metric">~1.5s reply time</span>, WhatsApp confirmation + H+1/H+3 follow-ups.</li>
+    <li>Free-form chat order parsed into a clean spreadsheet row (name, variant, qty, total, address, phone, status); replies in about 1.5 seconds, with WhatsApp confirmation and follow-ups at H+1 and H+3.</li>
     <li>Owner bot for reports and control; customer-facing bot has <strong>no access</strong> to revenue or order data (fail-closed allowlist, rate limit, audit log).</li>
   </ul>
 </div>
@@ -86,8 +90,7 @@ Google Sheets, sends WhatsApp confirmations and reports revenue to the owner at 
   <div class="job-head"><span>Auto-Apply Bot · AI Document Chatbot</span><span>Python · SMTP · Streamlit</span></div>
   <div class="job-sub">Solo build · 2026 · <a href="https://github.com/Lilulil/docai-chatbot">github.com/Lilulil/docai-chatbot</a></div>
   <ul>
-    <li>Auto-Apply: reads vacancies from Excel and sends tailored applications with rate limiting — <span class="metric">12 applications from 33 vacancies</span> per run.</li>
-    <li>Doc chatbot: upload PDF/TXT/DOCX and ask questions; answers grounded via retrieval (Streamlit + vector search), WhatsApp version in n8n.</li>
+    <li>Auto-Apply reads vacancies from Excel and sends tailored applications with rate limiting (<span class="metric">12 from 33 per run</span>); doc chatbot answers questions grounded in your own PDFs (Streamlit + vector search).</li>
   </ul>
 </div>
 
@@ -97,7 +100,7 @@ Google Sheets, sends WhatsApp confirmations and reports revenue to the owner at 
     <li><strong>Languages:</strong> Python, JavaScript, HTML/CSS, Solidity (basics)</li>
     <li><strong>Automation:</strong> Playwright, PyAutoGUI, OpenCV, cron, REST/JSON APIs, reverse-engineering web apps</li>
     <li><strong>Data:</strong> SQLite, pandas, Excel, scraping and dedupe pipelines</li>
-    <li><strong>AI:</strong> Claude/[OI] API, RAG, vector search (Qdrant/FAISS), n8n orchestration</li>
+    <li><strong>AI:</strong> Claude / [OI] API, RAG, vector search (Qdrant/FAISS), n8n orchestration</li>
     <li><strong>Web3:</strong> EVM RPC, ethers.js/web3.py, wallet signatures, contract read/preview flows</li>
     <li><strong>Ops:</strong> Git/GitHub, Linux VPS, systemd/tmux, WordPress, technical documentation</li>
   </ul>
@@ -113,15 +116,24 @@ Google Sheets, sends WhatsApp confirmations and reports revenue to the owner at 
 </div>
 
 <h2>Certifications</h2>
-<p><strong>International Joint Lecture — Cybersecurity &amp; Artificial Intelligence for Academic Transformation</strong><br>
-<span class="note">Universitas Semarang (USM) × National United University (NUU), Taiwan · 7 October 2026 · 8 JP ·
-sessions: cybersecurity &amp; global higher education, responsible AI &amp; cyber resilience, AI for industry collaboration,
-generative AI &amp; AI learning companions</span></p>
-<p class="note">Frontend Web Development · Artificial Intelligence Specialization · WordPress Development · Website Development Fundamental — MySkill (2025) · Multimedia Production — BLKK Semarang (2021)</p>
+<p style="margin-bottom:5px;"><strong>International Joint Lecture — Cybersecurity &amp; AI for Academic Transformation</strong><br>
+<span class="note">Universitas Semarang (USM) × National United University (NUU), Taiwan · 7 October 2026 · 8 JP<br>
+Cybersecurity · responsible AI &amp; cyber resilience · AI for industry collaboration · generative AI</span></p>
+<ul class="cert-list">
+  <li>Frontend Web Development — MySkill (2025)</li>
+  <li>Artificial Intelligence Specialization — MySkill (2025)</li>
+  <li>WordPress Development — MySkill (2025)</li>
+  <li>Website Development Fundamental — MySkill (2025)</li>
+  <li>Multimedia Production — BLKK Semarang (2021)</li>
+</ul>
 
 <h2>Availability</h2>
-<p>Freelance and remote, worldwide · English (professional) · Indonesian (native) ·
-Response within a few hours on WhatsApp · Fixed scope, 50% upfront, 1 free revision.</p>
+<ul class="avail">
+  <li><strong>Open to:</strong> freelance and remote work, worldwide</li>
+  <li><strong>Languages:</strong> English (professional), Indonesian (native)</li>
+  <li><strong>Response:</strong> within a few hours on WhatsApp</li>
+  <li><strong>Terms:</strong> fixed scope, 50% upfront, 2 free revisions</li>
+</ul>
 
 </body>
 </html>
