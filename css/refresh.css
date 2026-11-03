@@ -28,3 +28,7 @@
 /* --- anchor studi kasus tidak tertutup navbar fixed --- */
 #case-motion { scroll-margin-top: 92px; }
 @media (max-width: 767px) { #case-motion { scroll-margin-top: 74px; } }
+@media (max-width: 575px) {
+  #case-motion h2 { font-size: 24px; line-height: 1.3; }
+  #case-motion .lead { font-size: 15px; }
+}
