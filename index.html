@@ -405,7 +405,129 @@
                 </div>
               </div>
 
+              <!-- Project 9: Edge AI Motion Classifier -->
+              <div class="item web illustration col-sm-12 col-md-6 col-lg-6 isotope-mb-2">
+                <div class="portfolio-item isotope-item gsap-reveal-img">
+                  <div class="overlay">
+                    <span class="wrap-icon icon-link2"></span>
+                    <div class="portfolio-item-content">
+                      <h3>Edge AI Motion Classifier &amp; CI4 Pipeline</h3>
+                      <p><strong>Tech:</strong> MediaPipe · CodeIgniter 4 · WebAssembly · Computer Vision</p>
+                      <p>Pose-based motion classifier running fully in the browser: 33 3D landmarks, sub-25 ms inference, zero video streaming to the server.</p>
+                      <p>✅ jump · crouch · kick · lying down · 300 ms state lock</p>
+                      <p><a href="#case-motion" style="color:#fff; text-decoration:underline;">Read the case study ↓</a></p>
+                    </div>
+                  </div>
+                  <a href="images/case-motion.svg" data-fancybox="gallery">
+                    <img src="images/case-motion.svg" class="img-fluid" alt="Edge AI motion pipeline diagram: webcam, getUserMedia, MediaPipe Pose Landmarker, kinematic classifier, CodeIgniter 4 view" style="width:100%; height:300px; object-fit:contain; background:#0b141c; cursor:pointer; border-radius:8px;">
+                  </a>
+                </div>
+              </div>
+
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDY: Edge AI Motion Classifier -->
+      <div class="unslate_co--section" id="case-motion">
+        <div class="container">
+          <div class="section-heading-wrap text-center mb-5">
+            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Edge AI Motion Classifier &amp; CodeIgniter 4 Pipeline</span></h2>
+            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76"></span>
+            <p class="lead gsap-reveal" style="max-width:820px;margin:1rem auto 0;">Zero-streaming backend · sub-25 ms edge inference · MediaPipe Pose Landmarker (33 landmarks, 3D) running entirely in the browser.</p>
+          </div>
+
+          <div class="row gutter-v4 align-items-stretch">
+            <div class="col-12 mb-4">
+              <div style="background:#0d0d0d;border:1px solid #262626;border-radius:12px;padding:26px;">
+                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:12px;">EXECUTIVE SUMMARY</p>
+                <p style="color:#bdbdbd;margin-bottom:12px;">A pose-based motion classifier that runs where the camera is. The browser captures frames with <span style="color:#cfe9ff;font-family:monospace;">getUserMedia()</span>, runs the MediaPipe Pose Landmarker through WebAssembly with the GPU delegate, and classifies movement from 33 3D landmarks — all before a single byte leaves the machine.</p>
+                <p style="color:#bdbdbd;margin-bottom:0;">The CodeIgniter 4 layer does one job: render a clean view wrapper. There is no frame proxying, no video queue and no media worker on the server. Only state events (state, confidence, timestamp ≈ 120 B) reach the backend over REST or WebSocket, so bandwidth stays flat no matter how long a session runs — and the video never exists outside the browser tab.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gutter-v4 align-items-stretch mb-4">
+            <div class="col-12">
+              <div style="background:#0b141c;border:1px solid #1e3b4a;border-radius:12px;padding:14px;">
+                <p style="color:#4fd1c5;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin:0 0 10px 6px;">ARCHITECTURE FLOW</p>
+                <img src="images/case-motion.svg" alt="Data flow: laptop webcam to HTML5 getUserMedia to MediaPipe Pose Landmarker JS/WASM to kinematic state classifier to CodeIgniter 4 view and REST/WebSocket telemetry" style="width:100%;height:auto;display:block;border-radius:8px;">
+                <p style="color:#7b8b9c;font-size:12px;margin:10px 6px 0;">Webcam → getUserMedia → Pose Landmarker (WASM/GPU) → kinematic classifier → UI overlay. Dashed paths are the only things that cross the network boundary.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gutter-v4 align-items-stretch">
+            <div class="col-12 mb-4">
+              <div style="background:#0d0d0d;border:1px solid #262626;border-radius:12px;padding:26px;">
+                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:14px;">KINEMATICS &amp; MATHEMATICAL THRESHOLDS</p>
+                <div style="overflow-x:auto;">
+                  <table style="width:100%;min-width:720px;border-collapse:collapse;font-size:13px;color:#bdbdbd;">
+                    <thead>
+                      <tr>
+                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">MOVEMENT</th>
+                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">SIGNAL &amp; FORMULA</th>
+                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">THRESHOLD</th>
+                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">EDGE HANDLING</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Jumping</td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Hip Δy (23/24) + ankle Δy (27/28)<br><span style="font-family:monospace;color:#cfe9ff;">v = Δy / 5</span></td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">v &gt; 0.045 · body_height</span></td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Feet cut off by the webcam frame → hip-only fallback (Δy &gt; 6% torso length)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Crouching</td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Hip–knee–ankle interior angle at the knee<br><span style="font-family:monospace;color:#cfe9ff;">θ = angle(hip−knee, ankle−knee)</span></td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">θ &lt; 120°</span> + hip below calibrated baseline</td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Baseline hip position calibrated from 60 standing frames (median)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Kicking</td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Ankle radial displacement from pelvic midpoint<br><span style="font-family:monospace;color:#cfe9ff;">d = |ankle_x − pelvis_x| / shoulder_width</span></td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">d &gt; 1.15</span></td>
+                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Anchor-leg stability verified ≥ 4 frames (rejects walk cycles)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:11px 12px;color:#8ff0ae;font-weight:600;">Lying down</td>
+                        <td style="padding:11px 12px;">Torso vector, shoulder midpoint → hip midpoint<br><span style="font-family:monospace;color:#cfe9ff;">φ = atan2(t.x, −t.y)</span></td>
+                        <td style="padding:11px 12px;"><span style="font-family:monospace;color:#f0d98a;">|φ| &gt; 60°</span> for ≥ 10 frames</td>
+                        <td style="padding:11px 12px;">Also triggers when the whole body drops into the lower third of frame</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row gutter-v4 align-items-stretch">
+            <div class="col-12 col-md-4 mb-4">
+              <div style="background:#0d0d0d;border:1px solid #262626;border-radius:12px;padding:22px;height:100%;">
+                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">MOVING AVERAGE FIFO</p>
+                <p style="color:#bdbdbd;font-size:13px;margin:0;">5–10 frame FIFO buffer per landmark, per axis. Removes single-frame landmark jitter (~1–2 px at 720p) before any threshold is evaluated.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <div style="background:#0d0d0d;border:1px solid #262626;border-radius:12px;padding:22px;height:100%;">
+                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">DEBOUNCE 300 MS</p>
+                <p style="color:#bdbdbd;font-size:13px;margin:0;">State-lock after a detection fires, plus hysteresis (enter 0.045 / exit 0.030) so landing does not flicker between JUMP and CROUCH.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <div style="background:#0d0d0d;border:1px solid #262626;border-radius:12px;padding:22px;height:100%;">
+                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RUNTIME BUDGET</p>
+                <p style="color:#bdbdbd;font-size:13px;margin:0;">Inference 12–22 ms/frame, classifier &lt; 2 ms, WASM heap ~30 MB. Fits the 33 ms frame budget at 30 FPS with room for rendering.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-3 mb-2">
+            <a href="docs/MediaPipe_CI4_Motion_Detection_Architecture_2.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-custom-light">⬇ Download Architecture Specification (PDF)</a>
+            <p style="color:#8a8a8a;margin-top:.7rem;font-size:.9rem;">2 pages · system flow, threshold table, state machine, performance budget</p>
           </div>
         </div>
       </div>
