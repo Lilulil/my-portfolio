@@ -12,12 +12,12 @@
   .contact { font-size: 8.6pt; color: #444; margin-bottom: 2px; }
   .contact a { color: #0a5f9e; text-decoration: none; }
   .rule { height: 2px; background: #111; margin: 7px 0 8px; }
-  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 7px 0 3px; color: #111;
+  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 5px 0 3px; color: #111;
        border-bottom: 1px solid #d5d5d5; padding-bottom: 2px; }
   p { margin: 0 0 5px; }
   ul { margin: 0 0 4px; padding-left: 14px; }
   li { margin-bottom: 1.5px; }
-  .job { margin-bottom: 5px; }
+  .job { margin-bottom: 4px; }
   .job-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 9.8pt; }
   .job-sub { color: #555; font-size: 8.7pt; margin-bottom: 1px; }
   .grid { display: flex; gap: 10px; }
@@ -30,7 +30,7 @@
   .two li { break-inside: avoid; }
 .cert-list, .avail { margin: 5px 0 0; padding-left: 15px; }
 .cert-list { column-count: 2; column-gap: 20px; }
-.cert-list li, .avail li { margin-bottom: 3.5px; color: #333; }
+.cert-list li, .avail li { margin-bottom: 2px; color: #333; }
 .cert-list li::marker, .avail li::marker { color: #1e6b4f; }
 </style>
 </head>
@@ -67,6 +67,14 @@ files, and Playwright bug-audit suites.</p>
 </div>
 
 <div class="job">
+  <div class="job-head"><span>Edge AI Motion Classifier — CI4 pipeline</span><span>MediaPipe · WASM · CodeIgniter 4</span></div>
+  <div class="job-sub">Solo build · 2026 · architecture spec PDF on portfolio</div>
+  <ul>
+    <li>Pose classifier runs fully in the browser (33 3D landmarks, WebAssembly + GPU delegate, <span class="metric">12–22 ms per frame</span>); video never leaves the client, only ~120 B state events reach the CodeIgniter 4 backend. Jump/crouch/kick/lying-down rules use joint angles and hip displacement, stabilised by a FIFO buffer and a 300 ms state lock.</li>
+  </ul>
+</div>
+
+<div class="job">
   <div class="job-head"><span>Automation Bot — browser game API</span><span>Python · REST · cron</span></div>
   <div class="job-sub">Solo build · 2026</div>
   <ul>
@@ -80,8 +88,7 @@ files, and Playwright bug-audit suites.</p>
   <div class="job-sub">Solo build · 2026</div>
   <ul>
     <li>Scrapes public sources without login, resolves shortlinks, fetches each landing page, scores every item, and stores only what is new.</li>
-    <li><span class="metric">40 items classified per run, 0 duplicate inserts</span> (composite-key dedupe); silent by design — reports only when something is worth acting on.</li>
-    <li>Rule-based classifier with red-flag detection (deposit / KYC / presale) that overrides the source text when the page disagrees.</li>
+    <li><span class="metric">40 items classified per run, 0 duplicate inserts</span> (composite-key dedupe); rule-based classifier with red-flag detection (deposit / KYC / presale) that overrides the source text when the page disagrees.</li>
   </ul>
 </div>
 
@@ -128,10 +135,8 @@ Cybersecurity · responsible AI &amp; cyber resilience · AI for industry collab
 
 <h2>Availability</h2>
 <ul class="avail">
-  <li><strong>Open to:</strong> freelance and remote work, worldwide</li>
-  <li><strong>Languages:</strong> English (professional), Indonesian (native)</li>
-  <li><strong>Response:</strong> within a few hours on WhatsApp</li>
-  <li><strong>Terms:</strong> fixed scope, 50% upfront, 2 free revisions</li>
+  <li><strong>Open to:</strong> freelance and remote work, worldwide · <strong>Languages:</strong> English (professional), Indonesian (native)</li>
+  <li><strong>Response:</strong> within a few hours on WhatsApp · <strong>Terms:</strong> fixed scope, 50% upfront, 2 free revisions</li>
 </ul>
 
 </body>
