@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Manhwa scraper pipeline: sources, parser, in-memory WebP, Wasabi S3, CDN">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1220"/><stop offset="1" stop-color="#0d1a14"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#37c8ff"/><stop offset="1" stop-color="#5fe08a"/>
+    </linearGradient>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3f6f8a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" rx="14" fill="none" stroke="#17303f"/>
+  <circle cx="26" cy="26" r="5" fill="#ff5f56"/><circle cx="44" cy="26" r="5" fill="#ffbd2e"/><circle cx="62" cy="26" r="5" fill="#27c93f"/>
+  <text x="92" y="31" fill="#6c8fa3" font-family="monospace" font-size="13">manga-sync · run_sync.sh</text>
+
+  <!-- Sources -->
+  <g font-family="monospace" font-size="11">
+    <rect x="24" y="60" width="150" height="34" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="82" fill="#9fc3d6">manhwaindo.my</text>
+    <rect x="24" y="102" width="150" height="34" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="124" fill="#9fc3d6">manhwadesu.rest</text>
+    <rect x="24" y="144" width="150" height="34" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="166" fill="#6f93a8">(residential proxy)</text>
+  </g>
+
+  <line x1="176" y1="119" x2="214" y2="119" stroke="#3f6f8a" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- Parser -->
+  <rect x="216" y="70" width="150" height="98" rx="10" fill="#0b1c17" stroke="#1d4a38"/>
+  <text x="230" y="90" fill="#3f8f6b" font-family="monospace" font-size="10">SCRAPER</text>
+  <text x="230" y="110" fill="#cfe8dc" font-family="sans-serif" font-size="11">parse chapter</text>
+  <text x="230" y="128" fill="#8fe3b4" font-family="monospace" font-size="10">19 images</text>
+  <text x="230" y="146" fill="#6f8f82" font-family="monospace" font-size="10">filter ads / logo</text>
+
+  <line x1="368" y1="119" x2="406" y2="119" stroke="#3f6f8a" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- WebP in memory -->
+  <rect x="408" y="70" width="160" height="98" rx="10" fill="#0b1c17" stroke="#1d4a38"/>
+  <text x="422" y="90" fill="#3f8f6b" font-family="monospace" font-size="10">IN MEMORY</text>
+  <text x="422" y="110" fill="#cfe8dc" font-family="sans-serif" font-size="11">JPEG → WebP</text>
+  <text x="422" y="128" fill="#8fe3b4" font-family="monospace" font-size="10">q=80 · no disk</text>
+  <text x="422" y="146" fill="#6f8f82" font-family="monospace" font-size="10">934 KB → 545 KB</text>
+
+  <line x1="570" y1="119" x2="608" y2="119" stroke="#3f6f8a" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- S3 -->
+  <rect x="610" y="70" width="166" height="98" rx="10" fill="#0b1c17" stroke="#1d4a38"/>
+  <text x="624" y="90" fill="#3f8f6b" font-family="monospace" font-size="10">S3 (Boto3)</text>
+  <text x="624" y="110" fill="#cfe8dc" font-family="sans-serif" font-size="11">put_object</text>
+  <text x="624" y="128" fill="#8fe3b4" font-family="monospace" font-size="10">cache 1y</text>
+  <text x="624" y="146" fill="#6f8f82" font-family="monospace" font-size="10">key by chapter</text>
+
+  <!-- bottom: dedupe + cron -->
+  <rect x="24" y="200" width="360" height="150" rx="10" fill="#0c1a15" stroke="#1d4a38"/>
+  <text x="40" y="222" fill="#3f8f6b" font-family="monospace" font-size="10">SQLITE · DEDUPE</text>
+  <g font-family="monospace" font-size="10.5" fill="#cfe8dc">
+    <text x="40" y="244">source  | slug            | chapter | status</text>
+    <text x="40" y="264" fill="#7fd3ab">manhwaindo | eleceed        | 425     | done</text>
+    <text x="40" y="284" fill="#6f8f82">manhwadesu | love-quest     | 1       | done</text>
+    <text x="40" y="304" fill="#6f8f82">manhwadesu | ane-haha-kankei| 1       | done</text>
+    <text x="40" y="330" fill="#5fe08a">re-run chapter yang sama → dilewati</text>
+  </g>
+
+  <rect x="400" y="200" width="376" height="150" rx="10" fill="#0c1a15" stroke="#1d4a38"/>
+  <text x="416" y="222" fill="#3f8f6b" font-family="monospace" font-size="10">CRON · FLOCK</text>
+  <g font-family="monospace" font-size="10.5" fill="#cfe8dc">
+    <text x="416" y="246">*/25 * * * *  ./run_sync.sh</text>
+    <text x="416" y="268" fill="#6f8f82">flock -n → tidak tumpang tindih</text>
+    <text x="416" y="290" fill="#6f8f82">log harian: logs/sync-YYYYMMDD.log</text>
+    <text x="416" y="318" fill="#5fe08a">1 target · 0 gagal</text>
+  </g>
+
+  <!-- badges -->
+  <g font-family="monospace" font-size="10">
+    <rect x="24" y="374" width="176" height="26" rx="13" fill="#10222f" stroke="#1f4459"/>
+    <text x="38" y="391" fill="#cfe6f2">WebP in-memory</text>
+    <rect x="210" y="374" width="150" height="26" rx="13" fill="#10222f" stroke="#1f4459"/>
+    <text x="224" y="391" fill="#cfe6f2">SQLite dedupe</text>
+    <rect x="370" y="374" width="196" height="26" rx="13" fill="#10222f" stroke="#1f4459"/>
+    <text x="384" y="391" fill="#cfe6f2">WAF bypass via proxy</text>
+    <rect x="576" y="374" width="200" height="26" rx="13" fill="#10222f" stroke="#1f4459"/>
+    <text x="590" y="391" fill="#cfe6f2">cron batch + flock</text>
+  </g>
+  <rect x="0" y="0" width="800" height="3" fill="url(#line)" opacity="0.85"/>
+</svg>
