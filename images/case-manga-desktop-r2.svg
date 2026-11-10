@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Desktop manga scraper GUI: three sources, HTTPX parser, Pillow WebP, Cloudflare R2 multipart upload, local HTML manifest for WordPress">
+  <defs>
+    <linearGradient id="dbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1220"/><stop offset="1" stop-color="#101a2c"/>
+    </linearGradient>
+    <marker id="dar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3f6f8a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#dbg)"/>
+  <rect x="0.5" y="0.5" width="799" height="449" rx="14" fill="none" stroke="#17303f"/>
+  <circle cx="26" cy="26" r="5" fill="#ff5f56"/><circle cx="44" cy="26" r="5" fill="#ffbd2e"/><circle cx="62" cy="26" r="5" fill="#27c93f"/>
+  <text x="92" y="31" fill="#6c8fa3" font-family="monospace" font-size="13">manga-scraper.exe · CustomTkinter (dark)</text>
+
+  <!-- Sources -->
+  <g font-family="monospace" font-size="11">
+    <rect x="24" y="58" width="152" height="30" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="78" fill="#9fc3d6">manhwadesu</text>
+    <rect x="24" y="96" width="152" height="30" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="116" fill="#9fc3d6">komiktap</text>
+    <rect x="24" y="134" width="152" height="30" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="154" fill="#9fc3d6">manhwaindo</text>
+  </g>
+  <line x1="178" y1="111" x2="216" y2="111" stroke="#3f6f8a" stroke-width="2" marker-end="url(#dar)"/>
+
+  <!-- Parser -->
+  <g font-family="monospace" font-size="11">
+    <rect x="218" y="78" width="150" height="66" rx="10" fill="#0d1a26" stroke="#37c8ff"/>
+    <text x="234" y="102" fill="#7fd8ff">HTTPX + BS4</text>
+    <text x="234" y="120" fill="#6f93a8">chapter manifest</text>
+    <text x="234" y="136" fill="#6f93a8">concurrent fetch</text>
+  </g>
+  <line x1="370" y1="111" x2="408" y2="111" stroke="#3f6f8a" stroke-width="2" marker-end="url(#dar)"/>
+
+  <!-- WebP -->
+  <g font-family="monospace" font-size="11">
+    <rect x="410" y="78" width="150" height="66" rx="10" fill="#0d1a26" stroke="#5fe08a"/>
+    <text x="426" y="102" fill="#8ff0b4">Pillow · WebP</text>
+    <text x="426" y="120" fill="#6f93a8">quality 65</text>
+    <text x="426" y="136" fill="#6f93a8">in-memory</text>
+  </g>
+  <line x1="562" y1="111" x2="600" y2="111" stroke="#3f6f8a" stroke-width="2" marker-end="url(#dar)"/>
+
+  <!-- R2 -->
+  <g font-family="monospace" font-size="11">
+    <rect x="602" y="78" width="174" height="66" rx="10" fill="#0d1a26" stroke="#f5a623"/>
+    <text x="618" y="102" fill="#ffcf7a">Cloudflare R2</text>
+    <text x="618" y="120" fill="#6f93a8">S3 API · multipart</text>
+    <text x="618" y="136" fill="#6f93a8">direct upload</text>
+  </g>
+
+  <!-- Local output -->
+  <rect x="24" y="192" width="752" height="86" rx="10" fill="#0b1622" stroke="#1d3a4d"/>
+  <text x="42" y="216" fill="#6c8fa3" font-family="monospace" font-size="11">output/&lt;source&gt;/&lt;title&gt;/chapter-01/ · index.html (HTML-tagged manifest)</text>
+  <g font-family="monospace" font-size="11">
+    <rect x="42" y="228" width="120" height="26" rx="6" fill="#0d1a26" stroke="#1d3a4d"/><text x="54" y="245" fill="#9fc3d6">001.webp</text>
+    <rect x="172" y="228" width="120" height="26" rx="6" fill="#0d1a26" stroke="#1d3a4d"/><text x="184" y="245" fill="#9fc3d6">002.webp</text>
+    <rect x="302" y="228" width="120" height="26" rx="6" fill="#0d1a26" stroke="#1d3a4d"/><text x="314" y="245" fill="#9fc3d6">003.webp</text>
+    <text x="440" y="245" fill="#6f93a8">→ WordPress / MangaStream CMS</text>
+  </g>
+
+  <!-- Threading + packaging -->
+  <g font-family="monospace" font-size="11">
+    <rect x="24" y="300" width="366" height="34" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="40" y="322" fill="#9fc3d6">background thread · UI stays responsive</text>
+    <rect x="410" y="300" width="366" height="34" rx="8" fill="#0d1a26" stroke="#1d3a4d"/>
+    <text x="426" y="322" fill="#9fc3d6">PyInstaller · portable .exe, no Python</text>
+  </g>
+
+  <!-- Log strip -->
+  <rect x="24" y="352" width="752" height="72" rx="10" fill="#0b1622" stroke="#1d3a4d"/>
+  <g font-family="monospace" font-size="11">
+    <text x="42" y="374" fill="#5fe08a">[ok]</text><text x="86" y="374" fill="#8aa9bb">chapter-42 · 38 pages · 1.8 MB · webp q65</text>
+    <text x="42" y="392" fill="#5fe08a">[ok]</text><text x="86" y="392" fill="#8aa9bb">r2://manga/komiktap/title/chapter-42/ uploaded</text>
+    <text x="42" y="410" fill="#37c8ff">[ui]</text><text x="86" y="410" fill="#8aa9bb">progress 100% · manifest written · 0 errors</text>
+  </g>
+</svg>
