@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio-ulil-abshor.vercel.app/sitemap.xml
