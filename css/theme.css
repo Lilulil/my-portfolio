@@ -194,25 +194,6 @@ code {
 .section-heading-wrap > span img { filter: grayscale(1) brightness(1.6); opacity: .45; }
 .section-heading-wrap .lead { max-width: 760px; margin-left: auto; margin-right: auto; }
 
-/* ---------- panels (services + case study) ---------- */
-.panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .015));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 26px;
-  height: 100%;
-  transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
-}
-.panel:hover {
-  border-color: rgba(95, 224, 138, .32);
-  transform: translateY(-3px);
-  box-shadow: 0 22px 44px -28px rgba(0, 0, 0, .9);
-}
-.panel h4 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; }
-.panel ul { padding-left: 1.1rem; margin-bottom: 0; }
-.panel li { margin-bottom: .35rem; }
-.panel-diagram { padding: 14px; background: linear-gradient(180deg, rgba(55, 200, 255, .06), rgba(255, 255, 255, .01)); }
-
 /* ---------- project filters ---------- */
 .pf-filters {
   display: flex;
@@ -378,7 +359,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; transition-duration: .001ms !important; }
-  #posts .portfolio-item:hover, .panel:hover, .blog-item:hover, .btn:hover { transform: none; }
+  #posts .portfolio-item:hover, .blog-item:hover, .btn:hover { transform: none; }
   #posts .portfolio-item:hover img { transform: none; }
 }
 
