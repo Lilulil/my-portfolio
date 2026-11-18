@@ -272,7 +272,7 @@
                       <p><strong>Tech:</strong> Python, CustomTkinter, PyInstaller, Cloudflare R2 (S3 API), Pillow (WebP), HTTPX, BeautifulSoup4</p>
                       <p>Windows GUI app (dark mode) that scrapes three manga sources, converts every page to WebP (quality 65) and multipart-uploads it straight to Cloudflare R2.</p>
                       <p>✅ Non-blocking background threading · zero-dependency portable .exe · hierarchical output with HTML-tagged chapter manifests for WordPress / MangaStream</p>
-                      <p><a href="#case-r2" class="smoothscroll">Read the case study →</a></p>
+                      <p><span class="case-cta" title="Detailed case study page — coming soon">Read the case study →</span></p>
                     </div>
           </div>
               </div>
@@ -346,7 +346,7 @@
                       <p><strong>Tech:</strong> Python, LLM extraction, Sheets API, WA gateway</p>
                       <p>Shop admin that answers from the shop's own catalog, guides buyers through an order form, and writes each order to Google Sheets.</p>
                       <p>✅ ~1.5s replies · live stock · duplicate-proof (retries deduped) · owner-only reports</p>
-                      <p><a href="#case-aiadmin" class="smoothscroll">Read the case study →</a></p>
+                      <p><span class="case-cta" title="Detailed case study page — coming soon">Read the case study →</span></p>
                     </div>
           </div>
               </div>
@@ -437,228 +437,12 @@
                       <p><strong>Tech:</strong> MediaPipe · CodeIgniter 4 · WebAssembly · Computer Vision</p>
                       <p>Pose-based motion classifier running fully in the browser: 33 3D landmarks, sub-25 ms inference, zero video streaming to the server.</p>
                       <p>✅ jump · crouch · kick · lying down · 300 ms state lock</p>
-                      <p><a href="#case-motion" style="color:#fff; text-decoration:underline;">Read the case study ↓</a></p>
+                      <p><span class="case-cta" title="Detailed case study page — coming soon">Read the case study →</span></p>
                     </div>
           </div>
               </div>
 
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE STUDY: Edge AI Motion Classifier -->
-      <div class="unslate_co--section" id="case-motion">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Edge AI Motion Classifier &amp; CodeIgniter 4 Pipeline</span></h2>
-            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76" height="6" loading="lazy" decoding="async"></span>
-            <p class="lead gsap-reveal" style="max-width:820px;margin:1rem auto 0;">Zero-streaming backend · sub-25 ms edge inference · MediaPipe Pose Landmarker (33 landmarks, 3D) running entirely in the browser.</p>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:12px;">EXECUTIVE SUMMARY</p>
-                <p style="color:#bdbdbd;margin-bottom:12px;">A pose-based motion classifier that runs where the camera is. The browser captures frames with <span style="color:#cfe9ff;font-family:monospace;">getUserMedia()</span>, runs the MediaPipe Pose Landmarker through WebAssembly with the GPU delegate, and classifies movement from 33 3D landmarks — all before a single byte leaves the machine.</p>
-                <p style="color:#bdbdbd;margin-bottom:0;">The CodeIgniter 4 layer does one job: render a clean view wrapper. There is no frame proxying, no video queue and no media worker on the server. Only state events (state, confidence, timestamp ≈ 120 B) reach the backend over REST or WebSocket, so bandwidth stays flat no matter how long a session runs — and the video never exists outside the browser tab.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch mb-4">
-            <div class="col-12">
-              <div class="panel panel-diagram">
-                <p style="color:#4fd1c5;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin:0 0 10px 6px;">ARCHITECTURE FLOW</p>
-                <div class="diagram-scroll"><img src="images/case-motion.svg" alt="Data flow: laptop webcam to HTML5 getUserMedia to MediaPipe Pose Landmarker JS/WASM to kinematic state classifier to CodeIgniter 4 view and REST/WebSocket telemetry" style="width:100%;height:auto;display:block;border-radius:8px;" width="1200" height="420" loading="lazy" decoding="async"></div>
-                <p style="color:#7b8b9c;font-size:12px;margin:10px 6px 0;">Webcam → getUserMedia → Pose Landmarker (WASM/GPU) → kinematic classifier → UI overlay. Dashed paths are the only things that cross the network boundary.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:14px;">KINEMATICS &amp; MATHEMATICAL THRESHOLDS</p>
-                <div style="overflow-x:auto;">
-                  <table style="width:100%;min-width:720px;border-collapse:collapse;font-size:13px;color:#bdbdbd;">
-                    <thead>
-                      <tr>
-                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">MOVEMENT</th>
-                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">SIGNAL &amp; FORMULA</th>
-                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">THRESHOLD</th>
-                        <th style="text-align:left;padding:10px 12px;border-bottom:1px solid #2a2a2a;color:#9fd0f5;font-size:11px;letter-spacing:1px;">EDGE HANDLING</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Jumping</td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Hip Δy (23/24) + ankle Δy (27/28)<br><span style="font-family:monospace;color:#cfe9ff;">v = Δy / 5</span></td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">v &gt; 0.045 · body_height</span></td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Feet cut off by the webcam frame → hip-only fallback (Δy &gt; 6% torso length)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Crouching</td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Hip–knee–ankle interior angle at the knee<br><span style="font-family:monospace;color:#cfe9ff;">θ = angle(hip−knee, ankle−knee)</span></td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">θ &lt; 120°</span> + hip below calibrated baseline</td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Baseline hip position calibrated from 60 standing frames (median)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;color:#8ff0ae;font-weight:600;">Kicking</td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Ankle radial displacement from pelvic midpoint<br><span style="font-family:monospace;color:#cfe9ff;">d = |ankle_x − pelvis_x| / shoulder_width</span></td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;"><span style="font-family:monospace;color:#f0d98a;">d &gt; 1.15</span></td>
-                        <td style="padding:11px 12px;border-bottom:1px solid #1e1e1e;">Anchor-leg stability verified ≥ 4 frames (rejects walk cycles)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:11px 12px;color:#8ff0ae;font-weight:600;">Lying down</td>
-                        <td style="padding:11px 12px;">Torso vector, shoulder midpoint → hip midpoint<br><span style="font-family:monospace;color:#cfe9ff;">φ = atan2(t.x, −t.y)</span></td>
-                        <td style="padding:11px 12px;"><span style="font-family:monospace;color:#f0d98a;">|φ| &gt; 60°</span> for ≥ 10 frames</td>
-                        <td style="padding:11px 12px;">Also triggers when the whole body drops into the lower third of frame</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">MOVING AVERAGE FIFO</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">5–10 frame FIFO buffer per landmark, per axis. Removes single-frame landmark jitter (~1–2 px at 720p) before any threshold is evaluated.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">DEBOUNCE 300 MS</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">State-lock after a detection fires, plus hysteresis (enter 0.045 / exit 0.030) so landing does not flicker between JUMP and CROUCH.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RUNTIME BUDGET</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Inference 12–22 ms/frame, classifier &lt; 2 ms, WASM heap ~30 MB. Fits the 33 ms frame budget at 30 FPS with room for rendering.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center mt-3 mb-2">
-            <a href="docs/MediaPipe_CI4_Motion_Detection_Architecture_2.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-custom-light">⬇ Download Architecture Specification (PDF)</a>
-            <p style="color:#8a8a8a;margin-top:.7rem;font-size:.9rem;">2 pages · system flow, threshold table, state machine, performance budget</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE STUDY: Manga Scraper → Cloudflare R2 Pipeline -->
-      <div class="unslate_co--section" id="case-r2">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Manga Scraper → Cloudflare R2 Pipeline</span></h2>
-            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76" height="6" loading="lazy" decoding="async"></span>
-            <p class="lead gsap-reveal" style="max-width:820px;margin:1rem auto 0;">A Python pipeline that scrapes manga chapters, converts every page to WebP in memory, and uploads them straight to Cloudflare R2 — no temporary files on disk.</p>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:12px;">EXECUTIVE SUMMARY</p>
-                <p style="color:#bdbdbd;margin-bottom:12px;">The backend pipeline fetches chapter pages from the source, resizes and encodes them to WebP through Pillow without writing intermediate files, then streams the bytes to Cloudflare R2 via the S3-compatible API. A local SQLite database keeps hashes of uploaded chapters so retries skip already-present objects instead of re-uploading everything.</p>
-                <p style="color:#bdbdbd;margin-bottom:0;">A sibling desktop app wraps the same logic in a CustomTkinter GUI and packages it with PyInstaller into a portable .exe. It produces a local HTML manifest per chapter that WordPress or MangaStream can import directly, giving editors a drag-and-drop asset set without touching the command line.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch mb-4">
-            <div class="col-12">
-              <div class="panel panel-diagram">
-                <p style="color:#4fd1c5;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin:0 0 10px 6px;">ARCHITECTURE FLOW</p>
-                <div class="diagram-scroll"><img src="images/case-manga-pipeline.svg" alt="Manga scraper pipeline: source pages, in-memory WebP encoding, S3/R2 streaming upload, SQLite dedupe, and desktop GUI manifest output" style="width:100%;height:auto;display:block;border-radius:8px;" width="800" height="450" loading="lazy" decoding="async"></div>
-                <p style="color:#7b8b9c;font-size:12px;margin:10px 6px 0;">Scraper → in-memory WebP encoder → S3/R2 streaming upload → SQLite dedupe. The desktop GUI reuses the same core and outputs an HTML manifest per chapter.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">PROBLEM</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Large chapters (hundreds of pages) used to fill the disk with temporary files and re-upload every page whenever a job was retried. Operators lost time cleaning temp folders and waiting for duplicate uploads.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">APPROACH</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Keep every page in memory during encode, stream bytes directly to R2, and record chapter hashes in SQLite before the upload starts. Retries compare the hash and skip objects that already exist.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RESULT</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">No temp files on disk; retry time drops to a fast hash check; the same core runs headless on a server or inside the portable Windows GUI.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center mt-3 mb-2">
-            <a href="https://github.com/Lilulil/manga-r2-scraper" target="_blank" rel="noopener" class="btn btn-primary btn-custom-light">manga-r2-scraper on GitHub</a>
-            <a href="https://github.com/Lilulil/manga-r2-desktop" target="_blank" rel="noopener" class="btn btn-outline-pill btn-custom-light ml-2">manga-r2-desktop on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASE STUDY: AI Admin: WhatsApp/Telegram Customer-Service Agent -->
-      <div class="unslate_co--section" id="case-aiadmin">
-        <div class="container">
-          <div class="section-heading-wrap text-center mb-5">
-            <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">AI Admin: WhatsApp/Telegram Customer-Service Agent</span></h2>
-            <span class="gsap-reveal"><img src="images/divider.png" alt="divider" width="76" height="6" loading="lazy" decoding="async"></span>
-            <p class="lead gsap-reveal" style="max-width:820px;margin:1rem auto 0;">An AI customer-service agent for WhatsApp and Telegram that answers from a CSV catalog, extracts orders from conversation, and escalates to a human when it is not sure.</p>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin-bottom:12px;">EXECUTIVE SUMMARY</p>
-                <p style="color:#bdbdbd;margin-bottom:12px;">The agent reads the shop's product catalog as the single source of truth, so every price, stock status and recommendation is grounded in real data rather than invented by the model. It parses natural-language messages to pull out item names, quantities and delivery details, then writes a normalized order row.</p>
-                <p style="color:#bdbdbd;margin-bottom:0;">When confidence is low — an ambiguous item, missing stock, or a request outside the catalog — the agent stops and hands the chat to the owner instead of guessing. This keeps order records consistent and prevents missed chats outside working hours.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch mb-4">
-            <div class="col-12">
-              <div class="panel panel-diagram">
-                <p style="color:#4fd1c5;font-family:monospace;font-size:12px;letter-spacing:1.4px;margin:0 0 10px 6px;">ARCHITECTURE FLOW</p>
-                <div class="diagram-scroll"><img src="images/case-ai-admin.svg" alt="AI admin flow: customer message, intent extraction, catalog lookup, order normalization, owner report, and human escalation" style="width:100%;height:auto;display:block;border-radius:8px;" width="800" height="450" loading="lazy" decoding="async"></div>
-                <p style="color:#7b8b9c;font-size:12px;margin:10px 6px 0;">Customer message → intent/entity extraction → catalog lookup → order normalization → owner report or human escalation.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gutter-v4 align-items-stretch">
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">PROBLEM</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Manual customer service missed messages outside working hours and recorded orders inconsistently, leading to duplicate entries, wrong items, and lost sales.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">APPROACH</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Use the catalog CSV as the ground-truth knowledge base, guide the buyer through a structured order form in chat, and require explicit human handoff for any ambiguous case.</p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RESULT</p>
-                <p style="color:#bdbdbd;font-size:13px;margin:0;">Orders are normalized into a single consistent format, the owner gets a summary report, and ambiguous cases are escalated instead of guessed.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center mt-3 mb-2">
-            <a href="https://github.com/Lilulil/ai-admin-demo" target="_blank" rel="noopener" class="btn btn-primary btn-custom-light">ai-admin-demo on GitHub</a>
           </div>
         </div>
       </div>
