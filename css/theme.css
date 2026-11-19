@@ -297,6 +297,10 @@ code {
 #posts .portfolio-item-content { display: flex; flex-direction: column; flex: 1 1 auto; }
 #posts .portfolio-item-content > p:last-child { margin-top: auto; }
 
+/* Kartu penuh selebar grid: dipakai kalau jumlah kartu ganjil (tidak ada slot
+   kosong di kanan) dan untuk diagram lebar supaya tidak terpotong 16:9. */
+#posts .item.kartu-lebar .portfolio-item img { aspect-ratio: auto; object-fit: contain; }
+
 /* ---------- certificates / blog cards ---------- */
 .blog-item {
   border: 1px solid var(--line);
