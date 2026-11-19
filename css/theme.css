@@ -291,6 +291,12 @@ code {
   overflow: visible;
 }
 
+/* Kartu dalam satu baris disamakan tingginya oleh js/main.js (samakanBaris):
+   isi kartu mengisi sisa ruang, tautan terakhir menempel di bawah. */
+#posts .item .portfolio-item { height: 100%; }
+#posts .portfolio-item-content { display: flex; flex-direction: column; flex: 1 1 auto; }
+#posts .portfolio-item-content > p:last-child { margin-top: auto; }
+
 /* ---------- certificates / blog cards ---------- */
 .blog-item {
   border: 1px solid var(--line);

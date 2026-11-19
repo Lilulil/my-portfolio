@@ -28,8 +28,32 @@ jQuery(function ($) {
 var siteIstotope = function () {
 	var $container = $('#posts').isotope({
 		itemSelector: '.item',
-		isFitWidth: true
+		isFitWidth: true,
+		// fitRows: kartu dalam satu baris selalu mulai di garis yang sama.
+		layoutMode: 'fitRows'
 	});
+
+	// Samakan tinggi kartu per baris supaya tepi bawah kiri dan kanan juga rata.
+	// Dijalankan ulang setiap kali Isotope menyusun ulang (muat, resize, filter).
+	function samakanBaris() {
+		var baris = {};
+		$container.find('.item').each(function () {
+			if (this.style.display === 'none') { return; }
+			this.style.height = '';
+			var kunci = Math.round(parseFloat(this.style.top) || 0);
+			(baris[kunci] = baris[kunci] || []).push(this);
+		});
+		$.each(baris, function (_, items) {
+			var maks = 0;
+			$(items).each(function () { maks = Math.max(maks, this.offsetHeight); });
+			$(items).each(function () { this.style.height = maks + 'px'; });
+		});
+	}
+	function jadwalkanSamakan() {
+		setTimeout(samakanBaris, 450); // beri waktu transisi Isotope (0.4s) selesai
+	}
+	jadwalkanSamakan();
+	$(window).on('resize', jadwalkanSamakan);
 
 	$(window).resize(function () {
 		$container.isotope({
@@ -45,11 +69,13 @@ var siteIstotope = function () {
 		$container.isotope({ filter: filterValue });
 		$('#filters a').removeClass('active');
 		$(this).addClass('active');
+		jadwalkanSamakan();
 	});
 
 	$container.imagesLoaded()
 		.progress(function () {
 			$container.isotope('layout');
+			jadwalkanSamakan();
 		})
 		.done(function () {
 			$('.gsap-reveal-img').each(function () {
