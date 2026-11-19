@@ -322,6 +322,9 @@ code {
 .unslate_co--footer { background: #05070a; border-top: 1px solid var(--line); }
 .footer-site-social a { color: rgba(233, 238, 246, .6); transition: color .25s ease, transform .25s ease; display: inline-block; }
 .footer-site-social a:hover { color: var(--accent); transform: translateY(-3px); }
+/* Template aslinya menumpuk ikon di bawah 992px; di sini tetap sebaris. */
+.unslate_co--footer .footer-site-social { display: flex; justify-content: center; flex-wrap: wrap; }
+.unslate_co--footer .footer-site-social li { display: block; }
 .site-copyright { color: rgba(233, 238, 246, .45); font-size: 12px; }
 
 /* case-study anchor must not hide under the nav */
