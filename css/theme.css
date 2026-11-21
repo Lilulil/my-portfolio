@@ -295,7 +295,9 @@ code {
    isi kartu mengisi sisa ruang, tautan terakhir menempel di bawah. */
 #posts .item .portfolio-item { height: 100%; }
 #posts .portfolio-item-content { display: flex; flex-direction: column; flex: 1 1 auto; }
-#posts .portfolio-item-content > p:last-child { margin-top: auto; }
+/* Hanya paragraf berisi tautan yang didorong ke bawah; paragraf teks biasa
+   tetap menempel di atas supaya tidak ada celah aneh setelah baris Tech. */
+#posts .portfolio-item-content > p:has(a) { margin-top: auto; }
 
 /* Kartu penuh selebar grid: dipakai kalau jumlah kartu ganjil (tidak ada slot
    kosong di kanan) dan untuk diagram lebar supaya tidak terpotong 16:9. */
