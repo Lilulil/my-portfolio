@@ -1,0 +1,64 @@
+ULIL ABSHOR
+Python Developer - Web Apps & Automation
+Demak, Central Java, Indonesia | +62 819 5238 7500 | uabshor43@gmail.com
+ulil-abshor.my.id | github.com/Lilulil | linkedin.com/in/ulil-abshor-124810213
+
+SUMMARY
+Web developer with 5-6 years building sites and landing pages, now shipping Python web apps and automation. Two live demos: a FastAPI lost-and-found app with 56 automated tests, and a Shopify catalog sync that fills a store from a supplier feed (47 products, 47 tests).
+I take a job end to end: pull or import the data, store it, expose it in a web app, deploy it on a Linux VPS behind a tunnel, and hand over tests so the next person can trust it.
+
+CORE SKILLS
+Web: HTML, CSS, JavaScript, responsive design, WordPress, Elementor, WooCommerce, Bootstrap, Git
+Python: FastAPI, Jinja2, SQLite, pytest, pandas, HTTPX, BeautifulSoup4
+Automation: n8n, Playwright, cron, systemd, REST/JSON APIs, WhatsApp and Telegram bots
+Data & APIs: Shopify Admin GraphQL API, Google Sheets API, Cloudflare R2 (S3), web scraping, dedupe pipelines
+AI: Claude API / [OI] API, RAG, vector search
+Ops: Linux VPS, Nginx, Cloudflare Tunnel, systemd, technical documentation
+
+SELECTED PROJECTS
+Shopify Catalog Sync
+Python, FastAPI, Shopify Admin GraphQL API, SQLite
+shopify.ulil-abshor.my.id | lilu-studio.myshopify.com
+- Imports a supplier catalog into Shopify through productSet: variants, collections and per-variant inventory.
+- Business rules: 20% retail markup, sold-out products unpublished automatically, every supplier price change logged.
+- 47 products, 46 published, 47 automated tests; re-running creates no duplicates.
+
+Lapor Barang Hilang - Community Lost & Found Web App
+Python, FastAPI, Jinja2, SQLite, Bootstrap
+lapor.ulil-abshor.my.id
+- Server-rendered lost-and-found board: photo reports, search, category filters and WhatsApp contact.
+- Security: per-IP rate limiting, honeypot field, hashed admin login, secure cookies behind a proxy, EXIF-stripped uploads.
+- 56 automated tests; deployed on a custom domain through a Cloudflare Tunnel.
+
+Standalone Desktop Manga Scraper & Cloudflare R2 Pipeline
+Python, CustomTkinter, Pillow, HTTPX, BeautifulSoup4
+- Windows GUI that scrapes three sources, converts every page to WebP (quality 65) and multipart-uploads to Cloudflare R2.
+- Non-blocking background threading; portable .exe with zero external dependencies.
+
+Automation Bot - browser game API
+Python, REST, cron
+- Reverse-engineered a private API and wallet-signature login; scheduled loop ran 112 cycles in 24 hours with 0 failed batches.
+- Safety rules: token floor, reserved stock, stop on session takeover; every action logged and alerted to Telegram.
+
+Edge AI Motion Classifier
+MediaPipe, WebAssembly, CodeIgniter 4
+- Pose classifier runs fully in the browser (33 3D landmarks, 12-22 ms per frame); only ~120 B state events reach the PHP backend.
+
+EXPERIENCE
+E-commerce Operations - Luna Lumina | 2024 - 2025
+- Ran store operations and listing optimisation; handled customer service in English.
+- Grew monthly sales from $250 to $3,000+ through listing quality, pricing tests and faster response times.
+
+CERTIFICATIONS
+- International Joint Lecture - Cybersecurity & AI for Academic Transformation, Universitas Semarang x National United University Taiwan (2026)
+- Frontend Web Development - MySkill (2025)
+- Artificial Intelligence Specialization - MySkill (2025)
+- WordPress Development - MySkill (2025)
+- Website Development Fundamentals - MySkill (2025)
+- Multimedia Production - BLKK Semarang (2021)
+
+LANGUAGES
+Indonesian (native), English (professional)
+
+AVAILABILITY
+Freelance and remote work, worldwide
