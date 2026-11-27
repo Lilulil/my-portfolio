@@ -94,8 +94,10 @@ reveal loses and the card appears instantly. The animation also uses
 `fill-mode: backwards` — never `forwards`/`both` — so the final `transform` is released
 and the card's own hover lift still works.
 
-Rhythm matches AOS elsewhere on the site: **800ms, `ease`, 100px rise**, 100ms stagger
-per column. Filtering force-reveals visible cards after 120ms so nothing stays
+Rhythm matches AOS elsewhere on the site: **800ms, `ease`, 100px rise**. Project cards
+stagger 100ms per column; certificate plates do not stagger (each sits in its own row
+wrapper), and they must not also carry `data-aos` — two systems moving the same card
+doubles the travel to 200px and flashes an empty card. Filtering force-reveals visible cards after 120ms so nothing stays
 invisible. `prefers-reduced-motion` disables it entirely.
 
 ## Known false positive
