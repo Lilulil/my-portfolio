@@ -318,6 +318,12 @@ a:hover { color: #e8808e; }
    kosong di kanan) dan untuk diagram lebar supaya tidak terpotong 16:9. */
 #posts .item.kartu-lebar .portfolio-item img { aspect-ratio: auto; object-fit: contain; }
 
+/* Diagram motion tidak boleh terpotong di kartu 6 kolom: muat utuh, latar gelap. */
+#posts .portfolio-item img[src="images/case-motion.svg"] {
+  object-fit: contain;
+  background: var(--bg-soft);
+}
+
 /* ---------- certificates / blog cards ---------- */
 .blog-item {
   border: 1px solid var(--line);
@@ -331,6 +337,127 @@ a:hover { color: #e8808e; }
   box-shadow: 0 26px 50px -30px rgba(0, 0, 0, .95);
 }
 .blog-item .overlay:before { background: linear-gradient(180deg, rgba(6, 9, 14, .3), rgba(6, 9, 14, .9) 75%); }
+
+/* ---------- certificate plates (journal section) ---------- */
+.cert-cell { container-type: inline-size; }
+
+.cert-plate {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-color .35s ease;
+}
+.cert-plate:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+}
+
+.cert-plate-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 12px 0;
+  padding: 12px;
+  aspect-ratio: 4 / 3;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: background .35s ease;
+}
+.cert-plate:hover .cert-plate-media { background: #111722; }
+
+.cert-plate-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+  object-fit: contain;
+}
+
+.cert-year {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  padding: 3px 8px;
+}
+
+.cert-plate-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+}
+
+.cert-kicker {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cert-plate-body h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.cert-skills {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.cert-link {
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.cert-link:hover { color: #fff; text-decoration: none; }
+
+/* International certificate: media left, details right once the card is wide enough. */
+@container (min-width: 680px) {
+  .cert-plate--wide {
+    display: grid;
+    grid-template-columns: 42% 1fr;
+    align-items: stretch;
+  }
+  .cert-plate--wide .cert-plate-media { margin: 12px 0 12px 12px; }
+  .cert-plate--wide .cert-plate-body {
+    justify-content: center;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+  .cert-plate--wide .cert-link { margin-top: 12px; }
+}
 
 /* ---------- contact + footer ---------- */
 .form-outline-style-v1 .form-control { color: var(--text); border-bottom: 1px solid var(--line-strong); }
@@ -389,7 +516,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; transition-duration: .001ms !important; }
-  #posts .portfolio-item:hover, .blog-item:hover, .btn:hover { transform: none; }
+  #posts .portfolio-item:hover, .blog-item:hover, .cert-plate:hover, .btn:hover { transform: none; }
   #posts .portfolio-item:hover img { transform: none; }
 }
 
@@ -428,3 +555,8 @@ a.case-cta:hover, a.case-cta:focus { color: #fff; border-bottom-color: var(--acc
 .case-isi { padding: 10px 0 40px; }
 .case-kaki { border-top: 1px solid var(--line); padding: 22px 0; color: var(--muted); font-size: 12px; text-align: center; }
 .case-kaki a { color: var(--muted); text-decoration: underline; }
+
+.portfolio-item, .cert-plate { transition: opacity .65s cubic-bezier(.2, .7, .2, 1), transform .65s cubic-bezier(.2, .7, .2, 1); }
+.portfolio-item.reveal-ready, .cert-plate.reveal-ready { opacity: 0; transform: translateY(22px); }
+.portfolio-item.reveal-in, .cert-plate.reveal-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .portfolio-item.reveal-ready, .cert-plate.reveal-ready { opacity: 1; transform: none; } }
