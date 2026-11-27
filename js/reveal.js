@@ -10,7 +10,8 @@
       var el = entry.target;
       var item = el.closest('.item');
       var idx = item ? Array.prototype.indexOf.call(item.parentElement.children, item) : 0;
-      el.style.transitionDelay = ((idx % 2) * 80) + 'ms';
+      el.style.animationDelay = ((idx % 2) * 100) + 'ms';
+      el.classList.remove('reveal-ready');
       el.classList.add('reveal-in');
       io.unobserve(el);
     });
@@ -22,7 +23,7 @@
         Array.prototype.forEach.call(document.querySelectorAll('#posts .item'), function (item) {
           if (item.style.display !== 'none') {
             var inner = item.querySelector('.portfolio-item');
-            if (inner) { inner.classList.add('reveal-in'); }
+            if (inner) { inner.classList.remove('reveal-ready'); inner.classList.add('reveal-in'); }
           }
         });
       }, 120);

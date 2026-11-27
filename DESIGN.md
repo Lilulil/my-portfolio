@@ -86,9 +86,17 @@ certificate spans full width with media left / body right on desktop.
 ## Scroll reveal
 `js/reveal.js` — IntersectionObserver, not AOS, because Isotope owns the transform on
 `.item` and AOS would fight it. Animate the inner `.portfolio-item` / `.cert-plate`
-only, never `.item`. 80ms stagger per column, 22px rise, 650ms. Filtering force-reveals
-visible cards after 120ms so nothing stays invisible. `prefers-reduced-motion` disables
-it entirely.
+only, never `.item`.
+
+Use a **keyframe animation** (`kartuMasuk`), not a transition: `#posts .portfolio-item`
+sets `transition: transform .4s …` with ID-level specificity, so a transition-based
+reveal loses and the card appears instantly. The animation also uses
+`fill-mode: backwards` — never `forwards`/`both` — so the final `transform` is released
+and the card's own hover lift still works.
+
+Rhythm matches AOS elsewhere on the site: **800ms, `ease`, 100px rise**, 100ms stagger
+per column. Filtering force-reveals visible cards after 120ms so nothing stays
+invisible. `prefers-reduced-motion` disables it entirely.
 
 ## Known false positive
 The detector reports the primary button as `#04120a on #d63447` (4.1:1). The red is the
