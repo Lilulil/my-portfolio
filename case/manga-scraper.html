@@ -11,9 +11,12 @@
   <meta property="og:description" content="Python desktop scraper: three sources, WebP conversion in memory, multipart upload straight to Cloudflare R2.">
   <meta name="theme-color" content="#07090d">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="../css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/theme.css?v=20261121">
+  <link rel="stylesheet" href="../css/style.css?v=20261127">
+  <link rel="stylesheet" href="../css/theme.css?v=20261127">
 </head>
 <body class="case-halaman">
   <div class="case-bilah">
@@ -54,19 +57,19 @@
           <div class="row gutter-v4 align-items-stretch">
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">PROBLEM</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">PROBLEM</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">Large chapters (hundreds of pages) used to fill the disk with temporary files and re-upload every page whenever a job was retried. Operators lost time cleaning temp folders and waiting for duplicate uploads.</p>
               </div>
             </div>
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">APPROACH</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">APPROACH</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">Keep every page in memory during encode, stream bytes directly to R2, and record chapter hashes in SQLite before the upload starts. Retries compare the hash and skip objects that already exist.</p>
               </div>
             </div>
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RESULT</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">RESULT</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">No temp files on disk; retry time drops to a fast hash check; the same core runs headless on a server or inside the portable Windows GUI.</p>
               </div>
             </div>

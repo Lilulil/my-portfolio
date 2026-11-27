@@ -11,9 +11,12 @@
   <meta property="og:description" content="Pose-based motion classifier running fully in the browser: MediaPipe 33 landmarks, sub-25 ms inference, zero video streaming.">
   <meta name="theme-color" content="#07090d">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="../css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/theme.css?v=20261121">
+  <link rel="stylesheet" href="../css/style.css?v=20261127">
+  <link rel="stylesheet" href="../css/theme.css?v=20261127">
 </head>
 <body class="case-halaman">
   <div class="case-bilah">
@@ -100,19 +103,19 @@
           <div class="row gutter-v4 align-items-stretch">
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">MOVING AVERAGE FIFO</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">MOVING AVERAGE FIFO</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">5–10 frame FIFO buffer per landmark, per axis. Removes single-frame landmark jitter (~1–2 px at 720p) before any threshold is evaluated.</p>
               </div>
             </div>
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">DEBOUNCE 300 MS</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">DEBOUNCE 300 MS</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">State-lock after a detection fires, plus hysteresis (enter 0.045 / exit 0.030) so landing does not flicker between JUMP and CROUCH.</p>
               </div>
             </div>
             <div class="col-12 col-md-4 mb-4">
               <div class="panel">
-                <p style="color:#8fe388;font-family:monospace;font-size:11.5px;letter-spacing:1.2px;margin-bottom:8px;">RUNTIME BUDGET</p>
+                <p style="color:#8fe388;font-family:monospace;font-size:13px;letter-spacing:1.2px;margin-bottom:8px;">RUNTIME BUDGET</p>
                 <p style="color:#bdbdbd;font-size:13px;margin:0;">Inference 12–22 ms/frame, classifier &lt; 2 ms, WASM heap ~30 MB. Fits the 33 ms frame budget at 30 FPS with room for rendering.</p>
               </div>
             </div>

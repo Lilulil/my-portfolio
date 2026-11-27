@@ -804,7 +804,7 @@ a, a:hover {
 .mouse-wrap .mouse-label {
   top: 0;
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: .05rem;
   text-transform: uppercase;
@@ -843,8 +843,6 @@ a, a:hover {
   margin: 6px auto;
   border-radius: 4px;
   background: #fff;
-  -webkit-animation: finger 2s infinite;
-  animation: finger 2s infinite;
 }
 
 @-webkit-keyframes intro {
@@ -901,6 +899,7 @@ a, a:hover {
 
 .grid-item {
   position: relative;
+  padding: 16px;
 }
 
 .grid-item:before {
@@ -933,6 +932,21 @@ a, a:hover {
   display: block;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+/* keep the media and overlay inside the card's 16px padding */
+.grid-item.blog-item img {
+  top: 16px;
+  left: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+}
+
+.grid-item.blog-item .overlay {
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
 }
 
 .portfolio-item {
