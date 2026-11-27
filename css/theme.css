@@ -72,6 +72,16 @@ a:hover { color: #e8808e; }
 .unslate_co--site-nav .site-nav-ul li a.nav-link:hover,
 .unslate_co--site-nav .site-nav-ul li.active a.nav-link { color: #fff; }
 .unslate_co--site-logo { font-weight: 800; letter-spacing: -.03em; }
+/* 44px touch target for the mobile Menu trigger (WCAG 2.5.5) */
+@media (max-width: 991.98px) {
+  .unslate_co--site-nav .site-nav-ul-none-onepage > li > a.js-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
 
 /* ---------- hero ---------- */
 #home-section { position: relative; overflow: hidden; }
@@ -105,6 +115,9 @@ a:hover { color: #e8808e; }
   color: #e8eef5;
 }
 #home-section .gsap-reveal-hero .reveal-content { line-height: 1.08; }
+
+/* keep the Scroll indicator clear of the home indicator on notched phones */
+.mouse-wrap { bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
 
 .hero-availability {
   margin: .85rem 0 0;
@@ -167,7 +180,7 @@ a:hover { color: #e8808e; }
 .btn-primary, .btn-custom-light.btn-primary {
   background: linear-gradient(100deg, var(--accent), var(--accent-2));
   border: none;
-  color: #ffffff !important;
+  color: #04120a !important;
   font-weight: 800;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
@@ -247,7 +260,8 @@ a:hover { color: #e8808e; }
   line-height: 1.25;
   margin-bottom: 8px;
 }
-#posts .portfolio-item-content p { font-size: 13px; line-height: 1.55 !important; color: rgba(233, 238, 246, .74); margin-bottom: 6px !important; }
+#posts .portfolio-item-content p { font-size: 14px; line-height: 1.55 !important; color: #a8b4c4; margin-bottom: 6px !important; }
+#posts .portfolio-item-content > p:has(> strong:first-child) { font-size: 13px; letter-spacing: normal; }
 #posts .portfolio-item-content strong { color: var(--accent); font-weight: 700; }
 #posts .portfolio-item-content a {
   color: var(--accent-2) !important;
@@ -346,7 +360,7 @@ a:hover { color: #e8808e; }
   .hero-cta .btn { width: 100%; }
   #posts .portfolio-item-content { padding: 14px 0 0; }
   #posts .portfolio-item-content h3 { font-size: 15.5px; }
-  #posts .portfolio-item-content p { font-size: 13px; }
+  #posts .portfolio-item-content p { font-size: 14px; }
   .pf-filters { gap: .4rem; }
   .pf-filters a { font-size: 12px; padding: 8px 12px; }
 }
