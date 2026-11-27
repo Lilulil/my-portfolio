@@ -69,6 +69,27 @@ These are the tells that made the site read as AI-generated. Do not reintroduce:
 Target: zero findings except `overused-font` (a taste call, accepted).
 Baseline when this system was adopted: **55 findings**. Current: **2**.
 
+## Cards
+Two card families, deliberately different — do not merge them.
+
+**Project card** (`#posts .item`): full-bleed screenshot cover on top, title, tech
+line, description, metric row, live link. Grid is Isotope `fitRows`; every card is the
+same width. One card was once double-wide (`kartu-lebar`) — removed, because a wider
+card reads as "more important" and the work is not ranked that way.
+
+**Certificate plate** (`.cert-plate`): a document, not a screenshot. Media sits in a
+padded frame with `object-fit: contain` (never crop a certificate), a year badge in the
+corner, and a body separated by a hairline rule — mono kicker, serif title, meta, link.
+No hover overlay; text never covers the certificate. The featured international
+certificate spans full width with media left / body right on desktop.
+
+## Scroll reveal
+`js/reveal.js` — IntersectionObserver, not AOS, because Isotope owns the transform on
+`.item` and AOS would fight it. Animate the inner `.portfolio-item` / `.cert-plate`
+only, never `.item`. 80ms stagger per column, 22px rise, 650ms. Filtering force-reveals
+visible cards after 120ms so nothing stays invisible. `prefers-reduced-motion` disables
+it entirely.
+
 ## Known false positive
 The detector reports the primary button as `#04120a on #d63447` (4.1:1). The red is the
 GSAP reveal cover sitting behind the button, not its background. Measured live, the
